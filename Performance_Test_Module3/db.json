@@ -42,16 +42,6 @@
       "endHour": "11:00",
       "reason": "Daily Meeting",
       "status": "pending"
-    },
-    {
-      "userId": "1",
-      "workspace": "e",
-      "date": "2026-06-03",
-      "startHour": "sf",
-      "endHour": "f",
-      "reason": "e5",
-      "status": "pending",
-      "id": "5T1NZ93-_B4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

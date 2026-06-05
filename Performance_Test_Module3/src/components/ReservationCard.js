@@ -9,8 +9,12 @@ return `<article class="border p-3 rounded">
 <p>Estado: ${r.status}</p>
 <br> 
 ${userRole==="admin" && r.status==="pending" ? `<button class="approve" data-id="${r.id}">Aprobar</button>
-<button class="reject" data-id="${r.id}">Rechazar</button>`:""}
+
+<button class="reject" data-id="${r.id}">Rechazar</button> `:""}
 <br> 
-${r.status==="pending" || userRole==="admin" ? `<button class="delete" data-id="${r.id}">Eliminar</button>`:""}
+${r.status==="pending" || userRole==="admin" ? `<button class="delete" data-id="${r.id}">Eliminar</button>
+<button class="edit" data-id="${r.id}">Editar</button>`:""}
 </article>`
 }
+
+

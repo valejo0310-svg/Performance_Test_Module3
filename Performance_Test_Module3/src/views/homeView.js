@@ -25,9 +25,9 @@ export default function homeView() {
 
       <input type="date" name="date" required>
 
-      <input name="start" placeholder="08:00" required>
+      <input type="time" name="start" placeholder="08:00" required>
 
-      <input name="end" placeholder="09:00" required>
+      <input type="time" name="end" placeholder="09:00" required>
 
       <input name="reason" placeholder="Motivo" required>
 

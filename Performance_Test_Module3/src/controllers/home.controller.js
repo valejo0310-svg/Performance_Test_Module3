@@ -37,14 +37,37 @@ export const homeController = async () => {
   });
 
   document.querySelectorAll(".approve").forEach(b=>b.onclick=async()=>{
-  await updateReservation(b.dataset.id,{status:"approved"});location.reload();
+  await updateReservation(b.dataset.id,{status:"approved"});
 });
 
   document.querySelectorAll(".reject").forEach(b=>b.onclick=async()=>{
-  await updateReservation(b.dataset.id,{status:"rejected"});location.reload();
+  await updateReservation(b.dataset.id,{status:"rejected"});
 });
 
   document.querySelectorAll(".delete").forEach(b=>b.onclick=async()=>{
-  await deleteReservation(b.dataset.id);location.reload();
+  await deleteReservation(b.dataset.id);
 });
+
+  document.querySelectorAll(".edit").forEach(b=>b.onclick=async()=>{
+    const reservation = reservations.find(r => String(r.id) === String(b.dataset.id));
+    if(!reservation) return;
+
+    const workspace = prompt("Espacio de trabajo:", reservation.workspace);
+    const date = prompt("Fecha:", reservation.date);
+    const startHour = prompt("Hora inicio:", reservation.startHour);
+    const endHour = prompt("Hora fin:", reservation.endHour);
+    const reason = prompt("Motivo:", reservation.reason);
+
+    if (!workspace || !date || !startHour || !endHour || !reason) return;
+
+    await updateReservation(b.dataset.id, {
+      workspace,
+      date,
+      startHour,
+      endHour,
+      reason
+    });
+
+    location.reload();
+  });
 };
